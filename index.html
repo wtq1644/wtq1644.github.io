@@ -159,6 +159,123 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/25/%E6%8E%92%E5%BA%8F/">排序</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/25/%E6%8E%92%E5%BA%8F/" class="archive-article-date">
+  	<time datetime="2020-01-25T08:20:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>选择法排序<br>    选择法排序的思路：<br>        把第一位和其他所有的进行比较，只要比第一位小的，就换到第一个位置来<br>        比较完后，第一位就是最小的<br>        然后再从第二位和剩余的其他所有进行比较，只要比第二位小，就换到第二个位置来<br>        比较完后，第二位就是第二小的<br>    以此类推</p>
+<pre><code>public class HelloWorld {
+public static void main(String[] args) {
+    int a [] = new int[]{18,62,68,82,65,9};
+    //排序前，先把内容打印出来
+    for (int i = 0; i &lt; a.length; i++) {
+        System.out.print(a[i] + &quot; &quot;);
+    }
+    System.out.println(&quot; &quot;);
+    //选择法排序
+
+
+    for (int j = 0; j &lt; a.length-1; j++) {
+        for (int i = j+1; i &lt; a.length; i++) {
+            if(a[i]&lt;a[j]){   
+                int temp = a[j];
+                a[j] = a[i];
+                a[i] = temp;
+            }
+        }
+    }
+
+    //把内容打印出来
+    for (int i = 0; i &lt; a.length; i++) {
+        System.out.print(a[i] + &quot; &quot;);
+    }
+    System.out.println(&quot; &quot;);        
+}</code></pre><p>}</p>
+<p>冒泡排序法<br>    冒泡法排序的思路：<br>        第一步：从第一位开始，把相邻两位进行比较<br>        如果发现前面的比后面的大，就把大的数据交换在后面，循环比较完毕后，最后一位就是最大的<br>        第二步： 再来一次，只不过不用比较最后一位<br>    以此类推</p>
+<pre><code>public class HelloWorld {
+public static void main(String[] args) {
+    int a [] = new int[]{18,62,68,82,65,9};
+    //排序前，先把内容打印出来
+    for (int i = 0; i &lt; a.length; i++) {
+        System.out.print(a[i] + &quot; &quot;);
+    }
+    System.out.println(&quot; &quot;);
+    //冒泡法排序
+
+    for (int j = 0; j &lt; a.length; j++) {
+        for (int i = 0; i &lt; a.length-j-1; i++) {
+            if(a[i]&gt;a[i+1]){   
+                int temp = a[i];
+                a[i] = a[i+1];
+                a[i+1] = temp;
+            }
+        }
+    }
+
+    //把内容打印出来
+    for (int i = 0; i &lt; a.length; i++) {
+        System.out.print(a[i] + &quot; &quot;);
+    }
+    System.out.println(&quot; &quot;);        
+}</code></pre><p>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/25/%E6%8E%92%E5%BA%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-单例模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

@@ -148,6 +148,195 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-无重复字符的最长子串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/28/%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/">无重复字符的最长子串</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/28/%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" class="archive-article-date">
+  	<time datetime="2020-02-28T15:25:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>定义一个 map 数据结构存储 (k, v)，其中 key 值为字符，value 值为字符位置 +1，加 1 表示从字符位置后一个才开始不重复</li>
+<li>我们定义不重复子串的开始位置为 start，结束位置为 end</li>
+<li>随着 end 不断遍历向后，会遇到与 [start, end] 区间内字符相同的情况，此时将字符作为 key 值，获取其 value 值，并更新 start，此时 [start, end] 区间内不存在重复字符</li>
+<li>无论是否更新 start，都会更新其 map 数据结构和结果 ans。</li>
+<li>时间复杂度：O(n)</li>
+</ul>
+<hr>
+<pre><code>class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int n = s.length(), ans = 0;
+        Map&lt;Character, Integer&gt; map = new HashMap&lt;&gt;();
+        for (int end = 0, start = 0; end &lt; n; end++) {
+            char alpha = s.charAt(end);
+            if (map.containsKey(alpha)) {
+                start = Math.max(map.get(alpha), start);
+            }
+            ans = Math.max(ans, end - start + 1);
+            map.put(s.charAt(end), end + 1);
+        }
+        return ans;
+    }
+}</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法 滑动窗口</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/28/%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-整数反转" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/28/%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/">整数反转</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/28/%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/" class="archive-article-date">
+  	<time datetime="2020-02-28T15:24:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>通过循环将数字x的每一位拆开，在计算新值时每一步都判断是否溢出。</li>
+<li>溢出条件有两个，一个是大于整数最大值MAX_VALUE，另一个是小于整数最小值MIN_VALUE，设当前计算结果为ans，下一位为pop。</li>
+<li>从ans * 10 + pop &gt; MAX_VALUE这个溢出条件来看<br>当出现 ans &gt; MAX_VALUE / 10 且 还有pop需要添加 时，则一定溢出<br>当出现 ans == MAX_VALUE / 10 且 pop &gt; 7 时，则一定溢出，7是2^31 - 1的个位数</li>
+<li>从ans * 10 + pop &lt; MIN_VALUE这个溢出条件来看<br>当出现 ans &lt; MIN_VALUE / 10 且 还有pop需要添加 时，则一定溢出<br>当出现 ans == MIN_VALUE / 10 且 pop &lt; -8 时，则一定溢出，8是-2^31的个位数<br>代码</li>
+</ul>
+<hr>
+<pre><code>class Solution {
+    public int reverse(int x) {
+        int ans = 0;
+        while (x != 0) {
+            int pop = x % 10;
+            if (ans &gt; Integer.MAX_VALUE / 10 || (ans == Integer.MAX_VALUE / 10 &amp;&amp; pop &gt; 7)) 
+                return 0;
+            if (ans &lt; Integer.MIN_VALUE / 10 || (ans == Integer.MIN_VALUE / 10 &amp;&amp; pop &lt; -8)) 
+                return 0;
+            ans = ans * 10 + pop;
+            x /= 10;
+        }
+        return ans;
+    }
+}</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/28/%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-两数相加" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -520,11 +709,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法 滑动窗口</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
             
             <div class="clearfix"></div>

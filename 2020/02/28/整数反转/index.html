@@ -8,14 +8,14 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>整数反转 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="通过循环将数字x的每一位拆开，在计算新值时每一步都判断是否溢出。 溢出条件有两个，一个是大于整数最大值MAX_VALUE，另一个是小于整数最小值MIN_VALUE，设当前计算结果为ans，下一位为pop。 从ans * 10 + pop &gt; MAX_VALUE这个溢出条件来看当出现 ans &gt; MAX_VALUE &#x2F; 10 且 还有pop需要添加 时，则一定溢出当出现 ans &#x3D;&#x3D;">
+  <meta name="description" content="​    给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="整数反转">
 <meta property="og:url" content="http://yoursite.com/2020/02/28/%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="通过循环将数字x的每一位拆开，在计算新值时每一步都判断是否溢出。 溢出条件有两个，一个是大于整数最大值MAX_VALUE，另一个是小于整数最小值MIN_VALUE，设当前计算结果为ans，下一位为pop。 从ans * 10 + pop &gt; MAX_VALUE这个溢出条件来看当出现 ans &gt; MAX_VALUE &#x2F; 10 且 还有pop需要添加 时，则一定溢出当出现 ans &#x3D;&#x3D;">
+<meta property="og:description" content="​    给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。">
 <meta property="article:published_time" content="2020-02-28T15:24:57.000Z">
-<meta property="article:modified_time" content="2020-02-28T15:30:19.682Z">
+<meta property="article:modified_time" content="2020-04-15T10:46:29.917Z">
 <meta property="article:author" content="钟继炜">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -168,7 +168,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
+        <p>​    给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p>
+<a id="more"></a>
+
+<p>示例 1:</p>
+<p>​    输入: 123<br>​    输出: 321 </p>
+<p>示例 2:</p>
+<p>​    输入: -123<br>​    输出: -321</p>
+<p>示例 3:</p>
+<p>​    输入: 120<br>​    输出: 21</p>
+<blockquote>
+<p>注意:</p>
+<p>​    假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231,  231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。</p>
+</blockquote>
+<hr>
+<ul>
 <li>通过循环将数字x的每一位拆开，在计算新值时每一步都判断是否溢出。</li>
 <li>溢出条件有两个，一个是大于整数最大值MAX_VALUE，另一个是小于整数最小值MIN_VALUE，设当前计算结果为ans，下一位为pop。</li>
 <li>从ans * 10 + pop &gt; MAX_VALUE这个溢出条件来看<br>当出现 ans &gt; MAX_VALUE / 10 且 还有pop需要添加 时，则一定溢出<br>当出现 ans == MAX_VALUE / 10 且 pop &gt; 7 时，则一定溢出，7是2^31 - 1的个位数</li>
@@ -427,7 +441,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法 滑动窗口</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -435,7 +449,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">滑动窗口</a>
               </li>
             
             <div class="clearfix"></div>
